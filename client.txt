@@ -1,0 +1,4 @@
+_host=http://goodyear.kiteinventory.com/index.php/api/user/login
+_user=admin@goodyear.co.id
+_password=123abc
+_token=
