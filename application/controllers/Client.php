@@ -19,7 +19,7 @@ class Client extends CI_Controller {
     }
 	
 	private function configisg() {
-		$apppath =  str_replace("\\", "/", BASEPATH);
+		$apppath =  str_replace("\\", "/", APPPATH);
 		$fileconfig = $apppath.'client.txt';echo $fileconfig;die();
 		$file = file_get_contents($fileconfig, true);
 
