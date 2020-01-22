@@ -1,0 +1,22 @@
+table.tabelPopUp{width:100%;background-color: #f0f0f0;text-align: left;border:1px solid #ABC3D7;border-collapse:collapse; color:#474747;/*color:#3c7faf;*/ font-family: "lucida grande", Tahoma, verdana, arial, sans-serif; font-size:11px; direction:ltr; line-height:16px;}
+table.tabelPopUp tr th{padding:3px;text-align:center;border-bottom:1px solid #ABC3D7;border-top:1px solid #ABC3D7;border-right: 1px solid #ABC3D7;}
+table.tabelPopUp tr span.order{cursor:pointer;}
+table.tabelPopUp tr.head{border-bottom:1px solid #ABC3D7;}
+table.tabelPopUp tr.head th{font-weight:normal;}
+table.tabelPopUp tr.head .labelload{color:#777;display:none;}
+table.tabelPopUp tr.head span{float:right;}
+table.tabelPopUp td{color: #3D3D3D;padding: 5px;vertical-align:top;background-color: #FFF;border-bottom:1px solid #ABC3D7;border-left:1px solid #ABC3D7;}
+table.tabelPopUp tr.hilite td{background-color:#E8E8E8;}table.tabelPopUp tr.hilites td{background-color:#F3F3F3;}
+table.tabelPopUp td.odd{background-color:#F3F3F3;}table.tabelPopUp td.alt{background-color:#FFFFFF;}
+table.tabelPopUp tr.selected td{background-color:#d9e3ef;}
+table.tabelPopUp input, table.tabelPopUp form {margin:0px;padding:0px;}
+table.tabelPopUp input.tb_chk, table.tabelPopUp input.tb_chkall{cursor:pointer;}
+table.tabelPopUp input.tb_chkall{margin-left:4px}table.tabelPopUp input.tb_chk{margin-left:2px}
+table.tabelPopUp input.tb_text,table.tabelPopUp input.tb_cari, table.tabelPopUp select {border:1px solid #ABC3D7;font-family:Lucida Grande, Verdana, Sans-serif;font-size:11px;padding:2px;}
+table.tabelPopUp input.tb_text:hover, table.tabelPopUp input.tb_text.mousedown, table.tabelPopUp select:hover, table.tabelPopUp select.mousedown{background-color:#d9e3ef;}
+table.tabelPopUp input#tb_hal, table.tabelPopUp input#tb_view{width:40px;text-align:right;}
+table.tabelPopUp input#tb_cari{width:140px;}
+table.tabelPopUp .paging{font-size:19px;color:#585858;position:relative;top:2px;font-family:"Arial Black", Gadget, sans-serif}
+table.tabelPopUp .paging:hover{color: #001D61;}
+table.tabelPopUp .pdisabled{font-size:19px;color:#ABC3D7;position:relative;top:2px;font-family:"Arial Black", Gadget, sans-serif}/* CSS Document */
+
