@@ -298,6 +298,13 @@ class M_services extends CI_Model {
 							$inout['id_gudang'] = $valDtl['id_gudang'];
 							$inout['kode_trader'] = $hdr['kode_trader'];
 							$this->db->insert("tr_inout", $inout);
+							$inout_id = $this->db->insert_id();
+
+							$logbook['jml_satuan'] = $valDtl['jml_inout'];
+							$logbook['unit_price'] = $valDtl['price'] / $valDtl['jml_satuan'];
+							$logbook['saldo'] = $valDtl['jml_inout'];
+							$logbook['inout_id'] = $inout_id;
+							$this->db->insert('tr_logbook_in', $logbook);
 						}
 
 						$this->db->where(array("id"=>$valDtl['id_dtl']));

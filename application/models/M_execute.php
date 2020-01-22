@@ -1173,11 +1173,9 @@ class M_execute extends CI_Model {
 							$this->db->update("tpb_dtl", array("status"=>"04"));
 							$result = $this->db->insert_batch('tr_inout', $INOUT);
 
-							// if ($FAS_PERUSAHAAN == "2" || $FAS_PERUSAHAAN == "5") {
-							// 	#define data and insert into logbook
-							// 	$first_id = $this->db->insert_id();
-							// 	$this->insert_logbook('in', $first_id, $logbook);
-							// }
+							#define data and insert into logbook
+							$first_id = $this->db->insert_id();
+							$this->insert_logbook('in', $first_id, $logbook);
 
 							#commit jika transaksi berhasil dan rollback jika gagal
 							if ($this->db->trans_status() === FALSE) $this->db->trans_rollback();

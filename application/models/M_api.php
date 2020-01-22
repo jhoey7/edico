@@ -57,4 +57,21 @@ class M_api extends CI_Model
             return $id;
         }
     }
+
+    public function get_logbook_in($kode_trader) {
+        $qry = "SELECT a.jns_dokumen as kode_dokumen, a.nomor_aju, a.no_daftar as nomor_daftar, a.tgl_daftar as tanggal_daftar, 
+                c.kd_brg as kode_barang, c.jns_brg as jenis_barang, c.nm_brg as uraian_barang, c.kd_satuan_terkecil as kode_satuan, 
+                b.saldo, d.jml_satuan 
+                FROM tpb_hdr a 
+                LEFT JOIN tr_inout d ON d.id_hdr = a.id 
+                LEFT JOIN tr_logbook_in b on b.inout_id = d.id 
+                LEFT JOIN tm_barang c ON d.id_brg = c.id 
+                WHERE b.flag_tutup = 'N' AND b.saldo <> 0";
+        $res = $this->db->query($qry);
+        if ($res->num_rows() > 0) {
+            return $res->result_array();
+        } else {
+            return false;
+        }
+    }
 }

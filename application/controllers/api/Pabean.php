@@ -422,4 +422,40 @@ class Pabean extends \Restserver\Libraries\REST_Controller
     public function update_put() {
 
     }
+
+    /**
+     * Get Logbook Pabean with API
+     * -------------------------
+     * @method: GET
+     */
+    public function logbook_in_have_saldo_get() {
+         // Load Authorization Token Library
+        $this->load->library('Authorization_Token');
+
+        /**
+         * User Token Validation
+         */
+        $is_valid_token = $this->authorization_token->validateToken();
+        if (!empty($is_valid_token) AND $is_valid_token['status'] === TRUE) {
+            # XSS Filtering (https://www.codeigniter.com/user_guide/libraries/security.html)
+            $_POST = $this->security->xss_clean($_POST);
+            $headers = $this->input->request_headers();
+
+            if ($headers['Content-Type'] != "application/json") {
+                $message['content_type'] = 'Request header must set to Content-Type: application/json';
+                $error += 1;
+            }
+
+            if ($error > 0) {
+                $this->model->save_log($message, $this->post());
+                $this->response(['status' => FALSE, 'message' => $message ], REST_Controller::HTTP_UNPROCESSABLE_ENTITY);
+            } else {
+                $data = $this->model->get_logbook_in($is_valid_token['data']->kode_trader);
+                $this->response(['status' => TRUE, 'data' => $data], REST_Controller::HTTP_OK);
+            }
+        } else {
+            $this->model->save_log($is_valid_token['message'], $is_valid_token);
+            $this->response(['status' => FALSE, 'message' => $is_valid_token['message'] ], REST_Controller::HTTP_NOT_FOUND);
+        }
+    }
 }
